@@ -1,7 +1,8 @@
-# NeurotechResidencia
+# Neurotech Residência
 
-COMANDOS Back-end:
+## 🔧 Comandos para rodar o Back-end
 
+```bash
 cd back-end/
 npm install
 npm run dev
