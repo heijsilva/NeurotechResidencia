@@ -1,12 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv/config');
-const bodyParser = require('body-parser');
-const { PrismaClient } = require('@prisma/client');
-const authRoutes = require('./src/routes/authRoutes');
-const petRoutes = require('./src/routes/petRoutes');
-
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
+import bodyParser from 'body-parser';
+import { PrismaClient } from '@prisma/client';
+import authRoutes from './src/routes/authRoutes.js';  
+import petRoutes from './src/routes/petRoutes.js';  
 const app = express();
+
 const prisma = new PrismaClient();
 
 app.use(cors());

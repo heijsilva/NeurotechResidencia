@@ -1,4 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from '@prisma/client';
+
 const prisma = new PrismaClient();
 
 const createPet = async (req, res) => {
@@ -35,7 +36,4 @@ const getPetsByUser = async (req, res) => {
   }
 };
 
-module.exports = {
-  createPet,
-  getPetsByUser
-};
+export { createPet, getPetsByUser };

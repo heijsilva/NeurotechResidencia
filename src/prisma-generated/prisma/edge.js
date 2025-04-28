@@ -159,8 +159,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/prisma-generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel users {\n  id    String @id @default(auto()) @map(\"_id\") @db.ObjectId\n  email String @unique\n  name  String\n  age   String\n  pets  pets[] @relation(\"UserPets\")\n}\n\nmodel pets {\n  id     String @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name   String\n  age    String\n  userId String @db.ObjectId\n  user   users  @relation(\"UserPets\", fields: [userId], references: [id])\n}\n",
-  "inlineSchemaHash": "507b70566803f07e671538497cc1b280288a8e1a0e9e7518f0ee85175738d540",
+  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/prisma-generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mongodb\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel users {\n  id    String @id @default(auto()) @map(\"_id\") @db.ObjectId\n  email String @unique\n  name  String\n  age   String\n  pets  pets[] @relation(\"UserPets\")\n}\n\nmodel pets {\n  id     String @id @default(auto()) @map(\"_id\") @db.ObjectId\n  name   String\n  age    String\n  userId String @db.ObjectId\n  user   users  @relation(\"UserPets\", fields: [userId], references: [id])\n}\n",
+  "inlineSchemaHash": "89b5f01becce4df0f0f0bf519590e1d7a92ef183404de106a096b175514b0c53",
   "copyEngine": true
 }
 config.dirname = '/'
