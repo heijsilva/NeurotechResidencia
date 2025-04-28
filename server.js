@@ -1,23 +1,20 @@
-import express from 'express'
-// import { PrismaClient } from '@prisma/client'
-import 'dotenv/config'
+const express = require('express');
+const cors = require('cors');
+require('dotenv/config');
+const bodyParser = require('body-parser');
+const { PrismaClient } = require('@prisma/client');
+const authRoutes = require('./src/routes/authRoutes');
+const petRoutes = require('./src/routes/petRoutes');
 
-const app = express()
-// const prisma = new PrismaClient()
-const PORT = process.env.port || 3000
+const app = express();
+const prisma = new PrismaClient();
 
-app.use(express())
+app.use(cors());
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!')
-})
+app.use('/api/auth', authRoutes);
+app.use('/api/pets', petRoutes);
 
-// Exemplo Prisma
-// app.get('/usuarios', async (req, res) => {
-//     const users = await prisma.users.findMany()
-//     res.status(200).json(users)
-// })
-
-app.listen(PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
-})
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});

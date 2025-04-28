@@ -19,4 +19,13 @@ model users {
   email String @unique
   name  String
   age   String
+  pets  pets[] @relation("UserPets")
+}
+
+model pets {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  age    String
+  userId String @db.ObjectId
+  user   users  @relation("UserPets", fields: [userId], references: [id])
 }

@@ -117,6 +117,13 @@ exports.Prisma.UsersScalarFieldEnum = {
   age: 'age'
 };
 
+exports.Prisma.PetsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  age: 'age',
+  userId: 'userId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -129,7 +136,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  users: 'users'
+  users: 'users',
+  pets: 'pets'
 };
 
 /**
