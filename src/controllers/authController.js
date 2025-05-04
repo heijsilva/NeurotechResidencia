@@ -1,33 +1,42 @@
-import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
+import Usuario from '../models/Usuario.js';
 import jwt from 'jsonwebtoken';
 
-const prisma = new PrismaClient();
 
 const registerUser = async (req, res) => {
-  const { email, name, age, password } = req.body;
+  const {
+    nome,
+    email,
+    telefone,
+    senha,
+    tipo_usuario,
+    adotante_info,
+    ong_info
+  } = req.body;
 
   try {
-    const userExists = await prisma.users.findUnique({
-      where: { email }
+    const existingUser = await Usuario.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({ message: 'Usuário já existe' });
+    }
+
+    const newUser = new Usuario({
+      nome,
+      email,
+      telefone,
+      senha, // será criptografada pelo middleware do schema
+      tipo_usuario,
+      adotante_info: tipo_usuario.includes('adotante') ? adotante_info : undefined,
+      ong_info: tipo_usuario.includes('ong') ? ong_info : undefined
     });
 
-    if (userExists) return res.status(400).send({ message: 'Usuário já existe' });
+    await newUser.save();
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = await prisma.users.create({
-      data: {
-        email,
-        name,
-        age,
-        password: hashedPassword
-      }
-    });
-
-    res.status(201).send({ message: 'Usuário registrado com sucesso!' });
+    res.status(201).json({ message: 'Usuário registrado com sucesso!' });
   } catch (err) {
-    res.status(500).send({ error: err.message });
+    console.error(err);
+    res.status(500).json({ error: err.message });
   }
 };
 
@@ -35,20 +44,26 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await prisma.users.findUnique({
-      where: { email }
-    });
+    const user = await Usuario.findOne({ email });
 
-    if (!user) return res.status(400).send({ message: 'Usuário não encontrado' });
+    if (!user) {
+      return res.status(400).json({ message: 'Usuário não encontrado' });
+    }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).send({ message: 'Senha incorreta' });
+    const isMatch = await bcrypt.compare(password, user.senha);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Senha incorreta' });
+    }
 
-    const token = jwt.sign({ id: user.id }, 'secretkey', { expiresIn: '1h' });
-    res.status(200).send({ token });
+    const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+
+    res.status(200).json({ token });
   } catch (err) {
-    res.status(500).send({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 };
 
-export { registerUser, loginUser };
+
+export { registerUser
+  , loginUser 
+};
