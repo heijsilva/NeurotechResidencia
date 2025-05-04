@@ -1,9 +1,9 @@
-// import { Router } from 'express';
-// import { createPet, getPetsByUser } from '../controllers/petController.js';  
+import { Router } from 'express';
+import { createPet, getPetsByOng } from '../controllers/petController.js';  
 
-// const router = Router();
+const router = Router();
 
-// router.post('/', createPet);
-// router.get('/:userId', getPetsByUser);
+router.post('/', createPet);
+router.get('/:userId', getPetsByOng);
 
-// export default router;  
+export default router;  

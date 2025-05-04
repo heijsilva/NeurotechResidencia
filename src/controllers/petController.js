@@ -1,39 +1,58 @@
-// import { PrismaClient } from '@prisma/client';
+import Pet from '../models/Pet.js'; // Certifique-se do caminho correto
+import mongoose from 'mongoose';
 
-// const prisma = new PrismaClient();
+// Criar novo pet
+const createPet = async (req, res) => {
+  const {
+    nome,
+    tipo,
+    idade,
+    porte,
+    descricao,
+    id_ong,
+    foto_url,
+    vacinado,
+    castrado,
+    sexo,
+    cor,
+    raca
+  } = req.body;
 
-// const createPet = async (req, res) => {
-//   const { name, age, userId } = req.body;
+  try {
+    const pet = new Pet({
+      nome,
+      tipo,
+      idade,
+      porte,
+      descricao,
+      id_ong: new mongoose.Types.ObjectId(id_ong),
+      foto_url,
+      vacinado,
+      castrado,
+      sexo,
+      cor,
+      raca: raca ? new mongoose.Types.ObjectId(raca) : undefined
+    });
 
-//   try {
-//     const pet = await prisma.pets.create({
-//       data: {
-//         name,
-//         age,
-//         userId
-//       }
-//     });
+    await pet.save();
 
-//     res.status(201).send({ message: 'Pet criado com sucesso!', pet });
-//   } catch (err) {
-//     res.status(500).send({ error: err.message });
-//   }
-// };
+    res.status(201).json({ message: 'Pet criado com sucesso!', pet });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 
-// const getPetsByUser = async (req, res) => {
-//   const { userId } = req.params;
+// Buscar pets por ONG
+const getPetsByOng = async (req, res) => {
+  const { id_ong } = req.params;
 
-//   try {
-//     const pets = await prisma.pets.findMany({
-//       where: {
-//         userId: userId
-//       }
-//     });
+  try {
+    const pets = await Pet.find({ id_ong: new mongoose.Types.ObjectId(id_ong) }).populate('raca');
 
-//     res.status(200).send(pets);
-//   } catch (err) {
-//     res.status(500).send({ error: err.message });
-//   }
-// };
+    res.status(200).json(pets);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
 
-// export { createPet, getPetsByUser };
+export { createPet, getPetsByOng };
