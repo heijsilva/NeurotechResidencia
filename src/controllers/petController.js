@@ -55,4 +55,24 @@ const getPetsByOng = async (req, res) => {
   }
 };
 
-export { createPet, getPetsByOng };
+const updatePetImage = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const foto_url = `/uploads/${req.file.filename}`; // ou caminho completo se quiser
+
+    const pet = await Pet.findByIdAndUpdate(
+      id,
+      { foto_url },
+      { new: true }
+    );
+
+    if (!pet) return res.status(404).json({ message: 'Pet não encontrado' });
+
+    res.status(200).json({ message: 'Upload realizado com sucesso', pet });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
+export { createPet, getPetsByOng, updatePetImage};
