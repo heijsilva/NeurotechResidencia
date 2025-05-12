@@ -74,5 +74,33 @@ const updatePetImage = async (req, res) => {
   }
 };
 
+const getAllPets = async (req, res) => {
+  try {
+    const pets = await Pet.find(); // Busca todos os documentos da coleção
+    res.status(200).json(pets);    // Retorna os pets com status 200
+  } catch (error) {
+    console.error("Erro ao buscar pets:", error);
+    res.status(500).json({ message: "Erro ao buscar pets" });
+  }
+};
 
-export { createPet, getPetsByOng, updatePetImage};
+
+const getPetById = async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+
+  try {
+    const pet = await Pet.findById(id);
+
+    if (!pet) {
+      return res.status(404).json({ message: 'Pet não encontrado' });
+    }
+
+    res.status(200).json(pet);
+  } catch (error) {
+    console.error('Erro ao buscar pet por ID:', error);
+    res.status(500).json({ message: 'Erro ao buscar pet' });
+  }
+};
+
+export { createPet, getPetsByOng, updatePetImage, getAllPets, getPetById};
