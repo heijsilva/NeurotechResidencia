@@ -63,7 +63,16 @@ const loginUser = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await Usuario.find()
+    res.status(200).json(users)
+  } catch (err){
+    res.status(400).json(err)
+  }
+}
 
 export { registerUser
-  , loginUser 
+  , loginUser,
+  getAllUsers
 };
