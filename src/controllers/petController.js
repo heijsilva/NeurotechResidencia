@@ -1,64 +1,84 @@
-import Pet from '../models/Pet.js'; // Certifique-se do caminho correto
+import { Pet } from '../models/Pet.js';
 import mongoose from 'mongoose';
 
-// Criar novo pet
+// Criar novo pet (adaptado ao novo schema)
 const createPet = async (req, res) => {
   const {
     nome,
-    tipo,
+    especie,
     idade,
     porte,
+    peso,
     descricao,
-    id_ong,
+    ong_id,
     foto_url,
     vacinado,
     castrado,
-    sexo,
-    cor,
-    raca
+    vermifugado,
+    microchipado,
+    sexo, // removido se não faz mais parte do schema
+    cor,  // removido se não faz mais parte do schema
+    raca_id,
+    personalidades,
+    coordenadas,
+    cidade,
+    estado,
+    nivelEnergia,
+    necessidades_especiais,
+    imagens
   } = req.body;
 
   try {
-    const pet = new Pet({
+    const newPet = new Pet({
+      pet_id: Math.floor(Math.random() * 1000000), // Geração simplificada
       nome,
-      tipo,
+      especie,
       idade,
       porte,
+      peso,
       descricao,
-      id_ong: new mongoose.Types.ObjectId(id_ong),
+      ong_id: Number(ong_id),
       foto_url,
       vacinado,
       castrado,
-      sexo,
-      cor,
-      raca: raca ? new mongoose.Types.ObjectId(raca) : undefined
+      vermifugado,
+      microchipado,
+      nivelEnergia,
+      raca_id: Number(raca_id),
+      personalidades: personalidades?.map(Number) || [],
+      coordenadas,
+      cidade,
+      estado,
+      necessidades_especiais,
+      imagens
     });
 
-    await pet.save();
+    await newPet.save();
 
-    res.status(201).json({ message: 'Pet criado com sucesso!', pet });
+    res.status(201).json({ message: 'Pet criado com sucesso!', pet: newPet });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
+
 
 // Buscar pets por ONG
 const getPetsByOng = async (req, res) => {
   const { id_ong } = req.params;
 
   try {
-    const pets = await Pet.find({ id_ong: new mongoose.Types.ObjectId(id_ong) }).populate('raca');
-
+    const pets = await Pet.find({ ong_id: Number(id_ong) });
     res.status(200).json(pets);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
+
 const updatePetImage = async (req, res) => {
   try {
     const { id } = req.params;
-    const foto_url = `/uploads/${req.file.filename}`; // ou caminho completo se quiser
+    const foto_url = `/uploads/${req.file.filename}`;
 
     const pet = await Pet.findByIdAndUpdate(
       id,
@@ -73,6 +93,7 @@ const updatePetImage = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 const getAllPets = async (req, res) => {
   try {

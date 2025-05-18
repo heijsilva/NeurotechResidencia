@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs';
-import Usuario from '../models/Usuario.js';
+import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
-
+import Usuario from '../models/Usuario.js';
 
 const registerUser = async (req, res) => {
   const {
@@ -9,9 +9,18 @@ const registerUser = async (req, res) => {
     email,
     telefone,
     senha,
-    tipo_usuario,
-    adotante_info,
-    ong_info
+    tipo,
+    telefone_contato,
+    whatsapp,
+    cidade,
+    estado,
+    cep,
+    endereco,
+    coordenadas,
+    cnpj,
+    imagem_url,
+    redes_sociais,
+    preferencias
   } = req.body;
 
   try {
@@ -22,13 +31,24 @@ const registerUser = async (req, res) => {
     }
 
     const newUser = new Usuario({
+      _id: new mongoose.Types.ObjectId(),
+      user_id: Math.floor(Math.random() * 1000000), // gere um ID único conforme sua lógica
       nome,
       email,
       telefone,
-      senha, // será criptografada pelo middleware do schema
-      tipo_usuario,
-      adotante_info: tipo_usuario.includes('adotante') ? adotante_info : undefined,
-      ong_info: tipo_usuario.includes('ong') ? ong_info : undefined
+      senha, // será criptografada no pre('save')
+      tipo,
+      telefone_contato,
+      whatsapp,
+      cidade,
+      estado,
+      cep,
+      endereco,
+      coordenadas,
+      cnpj: tipo === 'ONG' ? cnpj : undefined,
+      imagem_url: tipo === 'ONG' ? imagem_url : undefined,
+      redes_sociais: tipo === 'ONG' ? redes_sociais : undefined,
+      preferencias: tipo === 'adotante' ? preferencias : undefined
     });
 
     await newUser.save();
@@ -42,7 +62,6 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, senha } = req.body;
-  console.log(req.body)
 
   try {
     const user = await Usuario.findOne({ email });
@@ -66,14 +85,15 @@ const loginUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await Usuario.find()
-    res.status(200).json(users)
-  } catch (err){
-    res.status(400).json(err)
+    const users = await Usuario.find();
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(400).json(err);
   }
-}
+};
 
-export { registerUser
-  , loginUser,
+export {
+  registerUser,
+  loginUser,
   getAllUsers
 };
