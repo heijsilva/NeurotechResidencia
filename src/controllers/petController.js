@@ -77,6 +77,9 @@ const getPetsByOng = async (req, res) => {
 
 const updatePetImage = async (req, res) => {
   try {
+     if (!req.file) {
+      return res.status(400).json({ error: 'Nenhum arquivo enviado.' });
+    }
     const { id } = req.params;
     const foto_url = `/uploads/${req.file.filename}`;
 
