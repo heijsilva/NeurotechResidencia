@@ -3,7 +3,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import bodyParser from 'body-parser';
 import authRoutes from './src/routes/authRoutes.js';  
-import petRoutes from './src/routes/petRoutes.js';  
+import petRoutes from './src/routes/petRoutes.js'; 
 import connectDB from './config/db.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,7 +16,9 @@ const app = express();
 connectDB();
 
 // Static folder to serve images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/download', express.static(path.resolve(__dirname, 'src', 'uploads')));
+
+
 app.use(cors());
 app.use(bodyParser.json());
 
