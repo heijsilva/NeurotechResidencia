@@ -102,8 +102,6 @@ const UsuarioSchema = new mongoose.Schema({
 });
 
 // Indexes
-UsuarioSchema.index({ user_id: 1 }, { unique: true });
-UsuarioSchema.index({ email: 1 }, { unique: true });
 UsuarioSchema.index({ tipo: 1 });
 UsuarioSchema.index({ cidade: 1, estado: 1 });
 UsuarioSchema.index({ 'coordenadas.latitude': 1, 'coordenadas.longitude': 1 });

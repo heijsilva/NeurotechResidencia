@@ -191,7 +191,6 @@ PetSchema.methods.temNecessidadesEspeciais = function() {
 };
 
 // Índices para otimizar consultas comuns
-PetSchema.index({ pet_id: 1 });
 PetSchema.index({ especie: 1 });
 PetSchema.index({ porte: 1 });
 PetSchema.index({ raca_id: 1 });
