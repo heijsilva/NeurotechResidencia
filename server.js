@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import bodyParser from 'body-parser';
-import authRoutes from './src/routes/authRoutes.js';  
-import petRoutes from './src/routes/petRoutes.js'; 
+import routes, { authRoute } from './src/routes/index.js';
+import { global } from './src/middleware/index.js';
 import connectDB from './config/db.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -18,12 +18,15 @@ connectDB();
 // Static folder to serve images
 app.use('/download', express.static(path.resolve(__dirname, 'src')));
 
-
 app.use(cors());
 app.use(bodyParser.json());
+app.use(global);
 
-app.use('/api/auth', authRoutes);
-app.use('/api/pets', petRoutes);
+app.use('/api' + authRoute.prefix, authRoute.router);
+
+routes.forEach((route) => {
+  app.use('/api' + route.prefix, ...route?.middlewares ?? [], route.router);
+});
 
 app.listen(3000, () => {
   console.log('Server running on port 3000');
