@@ -25,7 +25,7 @@ app.use(global);
 app.use('/api' + authRoute.prefix, authRoute.router);
 
 routes.forEach((route) => {
-  app.use('/api' + route.prefix, ...route?.middlewares ?? [], route.router);
+  app.use('/api' + route.prefix, route.router);
 });
 
 app.listen(3000, () => {

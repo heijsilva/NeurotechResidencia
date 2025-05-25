@@ -5,6 +5,8 @@ import middleware from '../../middleware/index.js';
 
 const router = Router();
 
+router.use([middleware.authenticated]);
+
 router.post('/', createPet);
 router.get('/ong/:userId', getPetsByOng); // Atenção aqui!
 router.get('/', getAllPets);
@@ -13,6 +15,5 @@ router.post('/:id/image', upload.single('image'), updatePetImage);
 
 export default {
     prefix: "/pets",
-    middlewares: [middleware.authenticated],
     router,
 };  
