@@ -1,4 +1,4 @@
-import { Pet } from '../models/Pet.js';
+import { EspecieEnum, NivelEnergiaEnum, Pet, PorteEnum, SexoEnum } from '../models/Pet.js';
 import mongoose from 'mongoose';
 
 // Criar novo pet (adaptado ao novo schema)
@@ -67,7 +67,7 @@ const getPetsByOng = async (req, res) => {
   const { id_ong } = req.params;
 
   try {
-    const pets = await Pet.find({ ong_id: Number(id_ong) });
+    const pets = await Pet.find({ ong_id: parseInt(id_ong) });
     res.status(200).json(pets);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -127,4 +127,23 @@ const getPetById = async (req, res) => {
   }
 };
 
-export { createPet, getPetsByOng, updatePetImage, getAllPets, getPetById};
+const getEnums = async (req, res) => {
+  const a =  {
+  PEQUENO: 'PEQUENO',
+  MEDIO: 'MEDIO',
+  GRANDE: 'GRANDE'
+};
+
+  try {
+    return res.status(200).json({
+      especie: Object.values(EspecieEnum),
+      porte: Object.values(PorteEnum),
+      nivelEnergia: Object.values(NivelEnergiaEnum),
+      genero: Object.values(SexoEnum)
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
+
+export { createPet, getPetsByOng, updatePetImage, getAllPets, getPetById, getEnums };
