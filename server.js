@@ -16,7 +16,7 @@ const app = express();
 connectDB();
 
 // Static folder to serve images
-app.use('/download', express.static(path.resolve(__dirname, 'src')));
+app.use('/download', express.static(path.resolve(__dirname, 'src', 'uploads')));
 
 app.use(cors());
 app.use(bodyParser.json());

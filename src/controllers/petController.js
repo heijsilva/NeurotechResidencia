@@ -30,28 +30,29 @@ const createPet = async (req, res) => {
 
   try {
     const newPet = new Pet({
-      pet_id: Math.floor(Math.random() * 1000000), // Geração simplificada
-      nome,
-      especie,
-      idade,
-      porte,
-      peso,
-      descricao,
-      ong_id: Number(ong_id),
-      foto_url,
-      vacinado,
-      castrado,
-      vermifugado,
-      microchipado,
-      nivelEnergia,
-      raca_id: Number(raca_id),
-      personalidades: personalidades?.map(Number) || [],
-      coordenadas,
-      cidade,
-      estado,
-      necessidades_especiais,
-      imagens
-    });
+  pet_id: Math.floor(Math.random() * 1000000),
+  nome,
+  especie,
+  idade,
+  porte,
+  peso,
+  descricao,
+  ong_id: Number(ong_id),
+  foto_url,
+  vacinado,
+  castrado,
+  vermifugado,
+  microchipado,
+  nivelEnergia,
+  sexo, // ✅ Adicione isso!
+  raca_id: Number(raca_id),
+  personalidades: personalidades?.map(Number) || [],
+  coordenadas,
+  cidade,
+  estado,
+  necessidades_especiais,
+  imagens
+});
 
     await newPet.save();
 

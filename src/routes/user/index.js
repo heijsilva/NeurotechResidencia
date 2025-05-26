@@ -4,7 +4,7 @@ import middleware from '../../middleware/index.js';
 
 const router = Router();
 
-router.use([middleware.authenticated]);
+// router.use([middleware.authenticated]);
 
 router.get('/', getAllUsers);
 router.get('/me', getMe);
