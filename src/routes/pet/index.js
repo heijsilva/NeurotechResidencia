@@ -7,9 +7,9 @@ const router = Router();
 
 router.use([middleware.authenticated]);
 
+router.get('/', getAllPets);
 router.post('/', createPet);
 router.get('/ong/:userId', getPetsByOng); // Atenção aqui!
-router.get('/', getAllPets);
 router.get('/:id', getPetById)
 router.post('/:id/image', upload.single('image'), updatePetImage);
 
