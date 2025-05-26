@@ -12,6 +12,11 @@ const PorteEnum = {
   GRANDE: 'GRANDE'
 };
 
+const SexoEnum = {
+  MACHO: 'MACHO',
+  FEMEA: 'FEMEA'
+};
+
 const NivelEnergiaEnum = {
   BAIXO: 'BAIXO',
   MODERADO: 'MODERADO',
@@ -66,6 +71,11 @@ const PetSchema = new mongoose.Schema({
     type: String,
     required: true,
     enum: Object.values(EspecieEnum)
+  },
+  sexo: {
+    type: String,
+    required: true,
+    enum: Object.values(SexoEnum)
   },
   porte: {
     type: String,
@@ -170,23 +180,23 @@ const PetSchema = new mongoose.Schema({
 });
 
 // Métodos para o modelo Pet
-PetSchema.methods.isGato = function() {
+PetSchema.methods.isGato = function () {
   return this.especie === EspecieEnum.GATO;
 };
 
-PetSchema.methods.isCachorro = function() {
+PetSchema.methods.isCachorro = function () {
   return this.especie === EspecieEnum.CACHORRO;
 };
 
-PetSchema.methods.isFilhote = function() {
+PetSchema.methods.isFilhote = function () {
   return this.idade < 1;
 };
 
-PetSchema.methods.isIdoso = function() {
+PetSchema.methods.isIdoso = function () {
   return this.idade > 10;
 };
 
-PetSchema.methods.temNecessidadesEspeciais = function() {
+PetSchema.methods.temNecessidadesEspeciais = function () {
   return this.necessidades_especiais !== null;
 };
 
@@ -201,15 +211,15 @@ PetSchema.index({ 'status.destaque': 1 });
 PetSchema.index({ 'coordenadas.latitude': 1, 'coordenadas.longitude': 1 });
 
 // Método estático para buscar pets próximos a uma localização
-PetSchema.statics.findNearby = function(lat, lng, maxDistanceKm) {
+PetSchema.statics.findNearby = function (lat, lng, maxDistanceKm) {
   // Implementação simplificada - em produção usaria $geoNear ou $nearSphere
   return this.find({
     'status.disponivel': true
   }).then(pets => {
     return pets.filter(pet => {
       const distance = calcularDistancia(
-        lat, lng, 
-        pet.coordenadas.latitude, 
+        lat, lng,
+        pet.coordenadas.latitude,
         pet.coordenadas.longitude
       );
       return distance <= maxDistanceKm;
@@ -222,11 +232,11 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
   const R = 6371; // Raio da Terra em km
   const dLat = (lat2 - lat1) * Math.PI / 180;
   const dLon = (lon2 - lon1) * Math.PI / 180;
-  const a = 
-    Math.sin(dLat/2) * Math.sin(dLat/2) +
-    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-    Math.sin(dLon/2) * Math.sin(dLon/2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
 
@@ -236,5 +246,6 @@ export {
   Pet,
   EspecieEnum,
   PorteEnum,
-  NivelEnergiaEnum
+  NivelEnergiaEnum,
+  SexoEnum
 };
