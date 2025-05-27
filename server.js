@@ -1,23 +1,33 @@
-import express from 'express'
-// import { PrismaClient } from '@prisma/client'
-import 'dotenv/config'
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
+import bodyParser from 'body-parser';
+import routes, { authRoute } from './src/routes/index.js';
+import { global } from './src/middleware/index.js';
+import connectDB from './config/db.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const app = express()
-// const prisma = new PrismaClient()
-const PORT = process.env.port || 3000
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-app.use(express())
 
-app.get('/', (req, res) => {
-    res.send('Hello, World!')
-})
+const app = express();
+connectDB();
 
-// Exemplo Prisma
-// app.get('/usuarios', async (req, res) => {
-//     const users = await prisma.users.findMany()
-//     res.status(200).json(users)
-// })
+// Static folder to serve images
+app.use('/download', express.static(path.resolve(__dirname, 'src', 'uploads')));
 
-app.listen(PORT, ()=>{
-    console.log(`Server running on port ${PORT}`)
-})
+app.use(cors());
+app.use(bodyParser.json());
+app.use(global);
+
+app.use('/api' + authRoute.prefix, authRoute.router);
+
+routes.forEach((route) => {
+  app.use('/api' + route.prefix, route.router);
+});
+
+app.listen(3333, () => {
+  console.log('Server running on port 3333');
+});
