@@ -1,3 +1,4 @@
+import Adocao from '../models/Adocao.js';
 import Usuario from '../models/Usuario.js';
 
 const getAllUsers = async (req, res) => {
@@ -84,8 +85,44 @@ const updateMe = async (req, res) => {
     }
 };
 
+
+const solicitarContato = async (req, res) => {
+  try {
+    const {
+      petId,
+      ongId,
+      nomeAdotante,
+      emailAdotante,
+      telefoneAdotante,
+      mensagem
+    } = req.body;
+
+    if (!petId || !ongId || !nomeAdotante || !emailAdotante || !telefoneAdotante) {
+      return res.status(400).json({ error: 'Campos obrigatórios ausentes.' });
+    }
+
+    const novaSolicitacao = new Adocao({
+      petId,
+      ongId,
+      nomeAdotante,
+      emailAdotante,
+      telefoneAdotante,
+      mensagem
+    });
+
+    await novaSolicitacao.save();
+
+    res.status(201).json({ message: 'Solicitação enviada com sucesso.' });
+  } catch (err) {
+    console.error('Erro ao registrar solicitação de adoção:', err);
+    res.status(500).json({ error: 'Erro interno do servidor.' });
+  }
+};
+
+
 export {
     getAllUsers,
     getMe,
-    updateMe
+    updateMe,
+    solicitarContato
 };
