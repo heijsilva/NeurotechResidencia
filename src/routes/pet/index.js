@@ -12,7 +12,7 @@ router.get('/:id', getPetById)
 router.get('/ong/:id_ong', getPetsByOng); // Atenção aqui!
 router.get('/enums', getEnums);
 router.post('/', createPet);
-router.post('/:id/image', upload.single('image'), updatePetImage);
+router.post('/image/:id/', upload.single('image'), updatePetImage);
 
 export default {
     prefix: "/pets",

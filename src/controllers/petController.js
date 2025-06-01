@@ -82,7 +82,7 @@ const updatePetImage = async (req, res) => {
       return res.status(400).json({ error: 'Nenhum arquivo enviado.' });
     }
     const { id } = req.params;
-    const foto_url = `/uploads/${req.file.filename}`;
+    const foto_url = `${req.file.filename}`;
 
     const pet = await Pet.findByIdAndUpdate(
       id,
