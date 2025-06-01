@@ -124,4 +124,7 @@ router.post('/gerar-recomendacoes', async (req, res) => {
   }
 });
 
-export default router;
+export default {
+    prefix: "/recomendation",
+    router,
+};  

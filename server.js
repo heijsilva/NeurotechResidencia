@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import bodyParser from 'body-parser';
-import routes, { authRoute } from './src/routes/index.js';
+import routes from './src/routes/index.js';
 import { global } from './src/middleware/index.js';
 import connectDB from './config/db.js';
 import path from 'path';
@@ -26,9 +26,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(global);
 
-// Rota de autenticação
-app.use('/api' + authRoute.prefix, authRoute.router);
-
 // Registrar todas as outras rotas
 routes.forEach((route) => {
   console.log(`📍 Registrando rota: /api${route.prefix}`);
@@ -48,7 +45,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.listen(3333, () => {
+app.listen(3000, () => {
   console.log('🚀 Server running on port 3333');
   console.log('📁 Uploads disponíveis em: http://localhost:3333/download/');
   console.log('🔗 API de auth: http://localhost:3333/api/auth/');
