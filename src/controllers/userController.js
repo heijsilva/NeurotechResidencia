@@ -119,10 +119,28 @@ const solicitarContato = async (req, res) => {
   }
 };
 
+const listarSolicitacoesPorOng = async (req, res) => {
+  try {
+    const { ongId } = req.params;
+
+    if (!ongId) {
+      return res.status(400).json({ error: 'ID da ONG é obrigatório.' });
+    }
+
+    const solicitacoes = await Adocao.find({ ongId }).sort({ dataSolicitacao: -1 });
+
+    res.status(200).json(solicitacoes);
+  } catch (err) {
+    console.error('Erro ao buscar solicitações:', err);
+    res.status(500).json({ error: 'Erro interno do servidor.' });
+  }
+};
+
 
 export {
     getAllUsers,
     getMe,
     updateMe,
-    solicitarContato
+    solicitarContato,
+    listarSolicitacoesPorOng
 };
