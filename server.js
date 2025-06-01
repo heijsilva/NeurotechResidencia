@@ -8,9 +8,11 @@ import connectDB from './config/db.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { configDotenv } from 'dotenv';
+import { getLocalIP } from './getLocalIP.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const localIP = getLocalIP();
 
 configDotenv();
 
@@ -44,10 +46,11 @@ app.get('/', (req, res) => {
     ]
   });
 });
+const PORT = 3000; // Altere a porta aqui se quiser
 
-app.listen(3000, () => {
-  console.log('🚀 Server running on port 3333');
-  console.log('📁 Uploads disponíveis em: http://localhost:3333/download/');
-  console.log('🔗 API de auth: http://localhost:3333/api/auth/');
-  console.log('🔗 API de recomendações: http://localhost:3333/api/recomendation/gerar-recomendacoes');
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📁 Exemplos de rotas:`);
+  console.log(` Celular:  ▶ http://${localIP}:${PORT}/api/auth/register`);
+  console.log(` Navegador:  ▶ http://localhost:${PORT}/api/auth/register`);
 });
