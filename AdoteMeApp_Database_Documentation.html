@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AdoteMe App - Documentação do Banco de Dados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        h2 {
+            color: #3498db;
+            border-bottom: 1px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #2980b9;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .code {
+            font-family: Consolas, monospace;
+            background-color: #f8f8f8;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>AdoteMe App - Documentação do Banco de Dados</h1>
+
+    <h2>Introdução</h2>
+    <p>
+        O AdoteMe App é uma plataforma de adoção de animais que funciona como um "Tinder" para pets. 
+        Usuários podem navegar por perfis de animais disponíveis para adoção, expressar interesse, e iniciar 
+        o processo de adoção com base em compatibilidade e localização. Este documento descreve a estrutura 
+        do banco de dados MongoDB utilizado pela aplicação, implementado com Mongoose no Node.js.
+    </p>
+
+    <h2>Diagrama de Entidade-Relacionamento</h2>
+    <img src="er_diagram.png" alt="Diagrama ER - AdoteMe App">
+
+    <h2>Coleções do Banco de Dados</h2>
+    <p>
+        O banco de dados MongoDB do AdoteMe App é composto por cinco coleções principais, cada uma 
+        representando uma entidade fundamental do sistema. Abaixo, detalhamos cada uma dessas coleções 
+        e seus respectivos esquemas.
+    </p>
+
+    <h3>1. Coleção: Usuarios</h3>
+    <p>
+        Esta coleção armazena informações sobre os usuários da plataforma, incluindo tanto pessoas 
+        interessadas em adotar quanto organizações de proteção animal (ONGs).
+    </p>
+    <table>
+        <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>_id</td>
+            <td>ObjectId</td>
+            <td>Identificador único do usuário</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>String</td>
+            <td>Nome completo do usuário</td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td>String</td>
+            <td>Email do usuário (único)</td>
+        </tr>
+        <tr>
+            <td>telefone</td>
+            <td>String</td>
+            <td>Número de telefone do usuário</td>
+        </tr>
+        <tr>
+            <td>tipo</td>
+            <td>Enum</td>
+            <td>Tipo de usuário: 'PESSOA' ou 'ONG'</td>
+        </tr>
+        <tr>
+            <td>dataNascimento</td>
+            <td>Date</td>
+            <td>Data de nascimento (apenas para pessoas)</td>
+        </tr>
+        <tr>
+            <td>cpf</td>
+            <td>String</td>
+            <td>CPF do usuário (apenas para pessoas)</td>
+        </tr>
+        <tr>
+            <td>cnpj</td>
+            <td>String</td>
+            <td>CNPJ da organização (apenas para ONGs)</td>
+        </tr>
+        <tr>
+            <td>endereco</td>
+            <td>Object</td>
+            <td>Objeto contendo informações de endereço</td>
+        </tr>
+        <tr>
+            <td>coordenadas</td>
+            <td>Object</td>
+            <td>Coordenadas geográficas (latitude e longitude)</td>
+        </tr>
+        <tr>
+            <td>preferencias</td>
+            <td>Object</td>
+            <td>Preferências de adoção do usuário</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>Date</td>
+            <td>Data de criação do registro</td>
+        </tr>
+        <tr>
+            <td>updatedAt</td>
+            <td>Date</td>
+            <td>Data da última atualização do registro</td>
+        </tr>
+    </table>
+
+    <h3>2. Coleção: Pets</h3>
+    <p>
+        Esta coleção armazena informações detalhadas sobre os animais disponíveis para adoção na plataforma.
+    </p>
+    <table>
+        <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>_id</td>
+            <td>ObjectId</td>
+            <td>Identificador único do pet</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>String</td>
+            <td>Nome do pet</td>
+        </tr>
+        <tr>
+            <td>especie</td>
+            <td>Enum</td>
+            <td>Espécie do pet: 'CACHORRO', 'GATO', etc.</td>
+        </tr>
+        <tr>
+            <td>porte</td>
+            <td>Enum</td>
+            <td>Porte do pet: 'PEQUENO', 'MEDIO', 'GRANDE'</td>
+        </tr>
+        <tr>
+            <td>idade</td>
+            <td>Number</td>
+            <td>Idade do pet em meses</td>
+        </tr>
+        <tr>
+            <td>peso</td>
+            <td>Number</td>
+            <td>Peso do pet em kg</td>
+        </tr>
+        <tr>
+            <td>sexo</td>
+            <td>Enum</td>
+            <td>Sexo do pet: 'MACHO' ou 'FEMEA'</td>
+        </tr>
+        <tr>
+            <td>castrado</td>
+            <td>Boolean</td>
+            <td>Indica se o pet é castrado</td>
+        </tr>
+        <tr>
+            <td>vacinado</td>
+            <td>Boolean</td>
+            <td>Indica se o pet está com vacinas em dia</td>
+        </tr>
+        <tr>
+            <td>vermifugado</td>
+            <td>Boolean</td>
+            <td>Indica se o pet está vermifugado</td>
+        </tr>
+        <tr>
+            <td>necessidadesEspeciais</td>
+            <td>Array</td>
+            <td>Lista de necessidades especiais do pet</td>
+        </tr>
+        <tr>
+            <td>racaId</td>
+            <td>ObjectId</td>
+            <td>Referência à raça do pet</td>
+        </tr>
+        <tr>
+            <td>personalidadeId</td>
+            <td>ObjectId</td>
+            <td>Referência à personalidade do pet</td>
+        </tr>
+        <tr>
+            <td>fotos</td>
+            <td>Array</td>
+            <td>URLs das fotos do pet</td>
+        </tr>
+        <tr>
+            <td>descricao</td>
+            <td>String</td>
+            <td>Descrição detalhada do pet</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>Object</td>
+            <td>Status de adoção e disponibilidade</td>
+        </tr>
+        <tr>
+            <td>coordenadas</td>
+            <td>Object</td>
+            <td>Coordenadas geográficas da localização do pet</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>Date</td>
+            <td>Data de criação do registro</td>
+        </tr>
+        <tr>
+            <td>updatedAt</td>
+            <td>Date</td>
+            <td>Data da última atualização do registro</td>
+        </tr>
+    </table>
+
+    <h3>3. Coleção: Personalidades</h3>
+    <p>
+        Esta coleção armazena os diferentes tipos de personalidades que um pet pode ter, 
+        junto com informações sobre compatibilidade com diferentes situações de vida.
+    </p>
+    <table>
+        <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>_id</td>
+            <td>ObjectId</td>
+            <td>Identificador único da personalidade</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>String</td>
+            <td>Nome da personalidade (ex: 'Brincalhão', 'Tímido')</td>
+        </tr>
+        <tr>
+            <td>descricao</td>
+            <td>String</td>
+            <td>Descrição detalhada da personalidade</td>
+        </tr>
+        <tr>
+            <td>compatibilidadeApartamento</td>
+            <td>Enum</td>
+            <td>Compatibilidade com apartamentos</td>
+        </tr>
+        <tr>
+            <td>compatibilidadeCriancas</td>
+            <td>Enum</td>
+            <td>Compatibilidade com crianças</td>
+        </tr>
+        <tr>
+            <td>compatibilidadeIdosos</td>
+            <td>Enum</td>
+            <td>Compatibilidade com idosos</td>
+        </tr>
+        <tr>
+            <td>compatibilidadeOutrosPets</td>
+            <td>Enum</td>
+            <td>Compatibilidade com outros pets</td>
+        </tr>
+        <tr>
+            <td>nivelAtividade</td>
+            <td>Enum</td>
+            <td>Nível de atividade: 'BAIXO', 'MEDIO', 'ALTO'</td>
+        </tr>
+        <tr>
+            <td>nivelSociabilidade</td>
+            <td>Enum</td>
+            <td>Nível de sociabilidade: 'BAIXO', 'MEDIO', 'ALTO'</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>Date</td>
+            <td>Data de criação do registro</td>
+        </tr>
+        <tr>
+            <td>updatedAt</td>
+            <td>Date</td>
+            <td>Data da última atualização do registro</td>
+        </tr>
+    </table>
+
+    <h3>4. Coleção: Racas</h3>
+    <p>
+        Esta coleção armazena informações sobre as diferentes raças de pets, incluindo 
+        características e compatibilidades.
+    </p>
+    <table>
+        <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>_id</td>
+            <td>ObjectId</td>
+            <td>Identificador único da raça</td>
+        </tr>
+        <tr>
+            <td>nome</td>
+            <td>String</td>
+            <td>Nome da raça</td>
+        </tr>
+        <tr>
+            <td>especie</td>
+            <td>Enum</td>
+            <td>Espécie: 'CACHORRO', 'GATO', etc.</td>
+        </tr>
+        <tr>
+            <td>porteComum</td>
+            <td>Enum</td>
+            <td>Porte comum da raça: 'PEQUENO', 'MEDIO', 'GRANDE'</td>
+        </tr>
+        <tr>
+            <td>caracteristicas</td>
+            <td>Object</td>
+            <td>Características específicas da raça</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>Date</td>
+            <td>Data de criação do registro</td>
+        </tr>
+        <tr>
+            <td>updatedAt</td>
+            <td>Date</td>
+            <td>Data da última atualização do registro</td>
+        </tr>
+    </table>
+
+    <h3>5. Coleção: Interacoes</h3>
+    <p>
+        Esta coleção registra todas as interações dos usuários com os pets na plataforma, 
+        incluindo curtidas, descurtidas, matches e o status do processo de adoção.
+    </p>
+    <table>
+        <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>_id</td>
+            <td>ObjectId</td>
+            <td>Identificador único da interação</td>
+        </tr>
+        <tr>
+            <td>usuarioId</td>
+            <td>ObjectId</td>
+            <td>Referência ao usuário que realizou a interação</td>
+        </tr>
+        <tr>
+            <td>petId</td>
+            <td>ObjectId</td>
+            <td>Referência ao pet que recebeu a interação</td>
+        </tr>
+        <tr>
+            <td>tipo</td>
+            <td>Enum</td>
+            <td>Tipo de interação: 'CURTIDA', 'DESCURTIDA', 'MATCH'</td>
+        </tr>
+        <tr>
+            <td>plataforma</td>
+            <td>Enum</td>
+            <td>Plataforma onde ocorreu a interação: 'WEB', 'ANDROID', 'IOS'</td>
+        </tr>
+        <tr>
+            <td>statusMatch</td>
+            <td>Enum</td>
+            <td>Status do match: 'PENDENTE', 'APROVADO', 'REJEITADO', 'CONCLUIDO'</td>
+        </tr>
+        <tr>
+            <td>motivoInteresse</td>
+            <td>Array</td>
+            <td>Motivos de interesse no pet (para curtidas)</td>
+        </tr>
+        <tr>
+            <td>motivoDesinteresse</td>
+            <td>Array</td>
+            <td>Motivos de desinteresse no pet (para descurtidas)</td>
+        </tr>
+        <tr>
+            <td>metadata</td>
+            <td>Object</td>
+            <td>Metadados adicionais sobre a interação</td>
+        </tr>
+        <tr>
+            <td>createdAt</td>
+            <td>Date</td>
+            <td>Data de criação do registro</td>
+        </tr>
+        <tr>
+            <td>updatedAt</td>
+            <td>Date</td>
+            <td>Data da última atualização do registro</td>
+        </tr>
+    </table>
+
+    <h2>Índices e Otimização de Performance</h2>
+    <p>
+        Para garantir a performance adequada do banco de dados, os seguintes índices são implementados:
+    </p>
+    <table>
+        <tr>
+            <th>Coleção</th>
+            <th>Campo(s)</th>
+            <th>Tipo</th>
+            <th>Propósito</th>
+        </tr>
+        <tr>
+            <td>Usuarios</td>
+            <td>email</td>
+            <td>Único</td>
+            <td>Garantir unicidade de emails e acelerar buscas por email</td>
+        </tr>
+        <tr>
+            <td>Usuarios</td>
+            <td>coordenadas</td>
+            <td>2dsphere</td>
+            <td>Permitir consultas geoespaciais (busca por proximidade)</td>
+        </tr>
+        <tr>
+            <td>Pets</td>
+            <td>coordenadas</td>
+            <td>2dsphere</td>
+            <td>Permitir consultas geoespaciais (busca por proximidade)</td>
+        </tr>
+        <tr>
+            <td>Pets</td>
+            <td>especie, porte, idade</td>
+            <td>Composto</td>
+            <td>Otimizar filtros comuns de busca</td>
+        </tr>
+        <tr>
+            <td>Pets</td>
+            <td>status.disponivel</td>
+            <td>Simples</td>
+            <td>Filtrar rapidamente pets disponíveis</td>
+        </tr>
+        <tr>
+            <td>Interacoes</td>
+            <td>usuarioId</td>
+            <td>Simples</td>
+            <td>Acelerar consultas de interações por usuário</td>
+        </tr>
+        <tr>
+            <td>Interacoes</td>
+            <td>petId</td>
+            <td>Simples</td>
+            <td>Acelerar consultas de interações por pet</td>
+        </tr>
+        <tr>
+            <td>Interacoes</td>
+            <td>usuarioId, petId</td>
+            <td>Composto</td>
+            <td>Verificar interações específicas usuário-pet</td>
+        </tr>
+    </table>
+
+    <h2>Relacionamentos entre Coleções</h2>
+    <p>
+        O MongoDB é um banco de dados NoSQL, portanto não possui relacionamentos formais como em bancos SQL. 
+        No entanto, as coleções do AdoteMe App possuem referências entre si através de campos que armazenam 
+        ObjectIds de documentos em outras coleções:
+    </p>
+    <table>
+        <tr>
+            <th>Relacionamento</th>
+            <th>Implementação</th>
+            <th>Descrição</th>
+        </tr>
+        <tr>
+            <td>Pet → Raça</td>
+            <td>Pet.racaId → Raca._id</td>
+            <td>Cada pet pertence a uma raça específica</td>
+        </tr>
+        <tr>
+            <td>Pet → Personalidade</td>
+            <td>Pet.personalidadeId → Personalidade._id</td>
+            <td>Cada pet possui uma personalidade</td>
+        </tr>
+        <tr>
+            <td>Interação → Usuário</td>
+            <td>Interacao.usuarioId → Usuario._id</td>
+            <td>Cada interação é realizada por um usuário</td>
+        </tr>
+        <tr>
+            <td>Interação → Pet</td>
+            <td>Interacao.petId → Pet._id</td>
+            <td>Cada interação é direcionada a um pet</td>
+        </tr>
+</body>
+</html>

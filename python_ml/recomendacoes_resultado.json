@@ -1,0 +1,929 @@
+[
+  {
+    "pet_id": "6817fd38e9c2687eb247dcac",
+    "nome": "Luna",
+    "descricao": "Muito brincalhona e amigável.",
+    "raca": {
+      "nome": "Raça não especificada",
+      "caracteristicas": [],
+      "porte_comum": null,
+      "especie": null
+    },
+    "distancia": 0,
+    "match_preferencias": 0.5,
+    "idade_pet": 2,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": false,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 0,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [],
+    "personalidades": [],
+    "peso": null,
+    "necessidades_especiais": "",
+    "cidade": "",
+    "estado": "",
+    "ong": {
+      "nome": "N/A",
+      "email": "N/A",
+      "telefone": "N/A",
+      "telefone_contato": "N/A",
+      "whatsapp": "N/A",
+      "endereco": {},
+      "cidade": "N/A",
+      "estado": "N/A",
+      "redes_sociais": {}
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817fda0e9c2687eb247dcb2",
+    "nome": "Luna",
+    "descricao": "Muito brincalhona e amigável.",
+    "raca": {
+      "nome": "Raça não especificada",
+      "caracteristicas": [],
+      "porte_comum": null,
+      "especie": null
+    },
+    "distancia": 0,
+    "match_preferencias": 0.5,
+    "idade_pet": 2,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": false,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 0,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [],
+    "personalidades": [],
+    "peso": null,
+    "necessidades_especiais": "",
+    "cidade": "",
+    "estado": "",
+    "ong": {
+      "nome": "N/A",
+      "email": "N/A",
+      "telefone": "N/A",
+      "telefone_contato": "N/A",
+      "whatsapp": "N/A",
+      "endereco": {},
+      "cidade": "N/A",
+      "estado": "N/A",
+      "redes_sociais": {}
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6834ca46a02179d42376a1bc",
+    "nome": "Luna",
+    "descricao": "Muito brincalhona e amigável.",
+    "raca": {
+      "nome": "Husky Siberiano",
+      "caracteristicas": [
+        "Hipoalergênico",
+        "Pelo longo",
+        "Adaptável a apartamento",
+        "Bom com crianças"
+      ],
+      "porte_comum": "GRANDE",
+      "especie": "CACHORRO"
+    },
+    "distancia": 0.0,
+    "match_preferencias": 0.5,
+    "idade_pet": 2,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": false,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [],
+    "personalidades": [
+      "Brincalhão",
+      "Calmo"
+    ],
+    "peso": 12.5,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 1",
+      "email": "ong1@adoteme.org",
+      "telefone": "(11) 997707-4474",
+      "telefone_contato": "(31) 999361-4953",
+      "whatsapp": "(71) 991197-2494",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 397",
+        "bairro": "Bairro 43",
+        "complemento": null
+      },
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong1",
+        "instagram": "instagram.com/ong1"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6834f2268a14a3ad2d222175",
+    "nome": "Luna",
+    "descricao": "Muito brincalhona e amigável.",
+    "raca": {
+      "nome": "Husky Siberiano",
+      "caracteristicas": [
+        "Hipoalergênico",
+        "Pelo longo",
+        "Adaptável a apartamento",
+        "Bom com crianças"
+      ],
+      "porte_comum": "GRANDE",
+      "especie": "CACHORRO"
+    },
+    "distancia": 0.0,
+    "match_preferencias": 0.5,
+    "idade_pet": 2,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": false,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [],
+    "personalidades": [
+      "Brincalhão",
+      "Calmo"
+    ],
+    "peso": 12.5,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 1",
+      "email": "ong1@adoteme.org",
+      "telefone": "(11) 997707-4474",
+      "telefone_contato": "(31) 999361-4953",
+      "whatsapp": "(71) 991197-2494",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 397",
+        "bairro": "Bairro 43",
+        "complemento": null
+      },
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong1",
+        "instagram": "instagram.com/ong1"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca130",
+    "nome": "Thor",
+    "descricao": "Pet 4 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Pastor Alemão",
+      "caracteristicas": [
+        "Fácil de treinar",
+        "Bom com crianças",
+        "Necessita muito exercício"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 6.3576042858198685,
+    "match_preferencias": 0.5,
+    "idade_pet": 5,
+    "castrado": 0,
+    "vacinado": 0,
+    "vermifugado": true,
+    "microchipado": false,
+    "sociavelCaes": 1,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 1,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet4_1.jpg",
+      "https://example.com/pets/pet4_2.jpg"
+    ],
+    "personalidades": [
+      "Komunikativo"
+    ],
+    "peso": 17.3,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 60",
+      "email": "ong60@adoteme.org",
+      "telefone": "(11) 997638-2998",
+      "telefone_contato": "(41) 999958-4942",
+      "whatsapp": "(51) 995049-3833",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 996",
+        "bairro": "Bairro 32",
+        "complemento": "Galpão"
+      },
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong60",
+        "instagram": "instagram.com/ong60"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca3a4",
+    "nome": "Lola",
+    "descricao": "Pet 632 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Pastor Alemão",
+      "caracteristicas": [
+        "Pelo curto",
+        "Fácil de treinar",
+        "Hipoalergênico",
+        "Pelo longo"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 6.543284515278086,
+    "match_preferencias": 0.5,
+    "idade_pet": 12,
+    "castrado": 1,
+    "vacinado": 0,
+    "vermifugado": true,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 1,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet632_1.jpg",
+      "https://example.com/pets/pet632_2.jpg"
+    ],
+    "personalidades": [
+      "Bagunceiro"
+    ],
+    "peso": 23.2,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 81",
+      "email": "ong81@adoteme.org",
+      "telefone": "(61) 995047-4953",
+      "telefone_contato": "(51) 999944-5514",
+      "whatsapp": "(11) 992055-8959",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 2",
+        "bairro": "Bairro 38",
+        "complemento": "Casa"
+      },
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong81",
+        "instagram": "instagram.com/ong81"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca2a3",
+    "nome": "Rex",
+    "descricao": "Pet 375 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Bengal",
+      "caracteristicas": [
+        "Pelo curto",
+        "Adaptável a apartamento"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "GATO"
+    },
+    "distancia": 7.3019905359799235,
+    "match_preferencias": 0.5,
+    "idade_pet": 13,
+    "castrado": 0,
+    "vacinado": 0,
+    "vermifugado": true,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 1,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 1,
+    "especie_pet_cachorro": 0,
+    "especie_pet_gato": 1,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 1,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet375_1.jpg",
+      "https://example.com/pets/pet375_2.jpg"
+    ],
+    "personalidades": [
+      "Focado",
+      "Komunikativo"
+    ],
+    "peso": 3.5,
+    "necessidades_especiais": "Deficiente auditivo",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 15",
+      "email": "ong15@adoteme.org",
+      "telefone": "(51) 994209-5171",
+      "telefone_contato": "(21) 992644-2988",
+      "whatsapp": "(21) 993229-6326",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 990",
+        "bairro": "Bairro 1",
+        "complemento": "Galpão"
+      },
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong15",
+        "instagram": "instagram.com/ong15"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca342",
+    "nome": "Luna",
+    "descricao": "Pet 534 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Labrador",
+      "caracteristicas": [
+        "Necessita muito exercício",
+        "Hipoalergênico",
+        "Pelo longo",
+        "Pelo curto"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 7.856842003307449,
+    "match_preferencias": 0.5,
+    "idade_pet": 8,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": true,
+    "microchipado": false,
+    "sociavelCaes": 1,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 1,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 1,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet534_1.jpg",
+      "https://example.com/pets/pet534_2.jpg"
+    ],
+    "personalidades": [
+      "Territorial",
+      "Brincalhão",
+      "Quieto",
+      "Paciente"
+    ],
+    "peso": 5.8,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 24",
+      "email": "ong24@adoteme.org",
+      "telefone": "(11) 991032-6850",
+      "telefone_contato": "(11) 993644-3353",
+      "whatsapp": "(31) 999035-8582",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 609",
+        "bairro": "Bairro 39",
+        "complemento": "Sala 101"
+      },
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong24",
+        "instagram": "instagram.com/ong24"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca4aa",
+    "nome": "Zeus",
+    "descricao": "Pet 894 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Ragdoll",
+      "caracteristicas": [
+        "Pelo curto",
+        "Necessita escovação frequente",
+        "Sociável",
+        "Hipoalergênico"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "GATO"
+    },
+    "distancia": 9.675332404721903,
+    "match_preferencias": 0.5,
+    "idade_pet": 10,
+    "castrado": 0,
+    "vacinado": 0,
+    "vermifugado": false,
+    "microchipado": false,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 1,
+    "especie_pet_cachorro": 0,
+    "especie_pet_gato": 1,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 1,
+    "imagens": [
+      "https://example.com/pets/pet894_1.jpg",
+      "https://example.com/pets/pet894_2.jpg"
+    ],
+    "personalidades": [
+      "Pacífico",
+      "Gentil",
+      "Dengoso"
+    ],
+    "peso": 11.3,
+    "necessidades_especiais": "Idoso",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 23",
+      "email": "ong23@adoteme.org",
+      "telefone": "(81) 996732-2248",
+      "telefone_contato": "(11) 991034-2089",
+      "whatsapp": "(91) 997212-3136",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 56",
+        "bairro": "Bairro 35",
+        "complemento": "Galpão"
+      },
+      "cidade": "Brasília",
+      "estado": "DF",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong23",
+        "instagram": "instagram.com/ong23"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca1c9",
+    "nome": "Thor",
+    "descricao": "Pet 157 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "British Shorthair",
+      "caracteristicas": [
+        "Hipoalergênico",
+        "Pelo longo"
+      ],
+      "porte_comum": "PEQUENO",
+      "especie": "GATO"
+    },
+    "distancia": 10.030704939557904,
+    "match_preferencias": 0.5,
+    "idade_pet": 1,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": false,
+    "microchipado": true,
+    "sociavelCaes": 0,
+    "sociavelGatos": 1,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 0,
+    "especie_pet_gato": 1,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 1,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet157_1.jpg",
+      "https://example.com/pets/pet157_2.jpg"
+    ],
+    "personalidades": [
+      "Independente",
+      "Quieto"
+    ],
+    "peso": 2.4,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 40",
+      "email": "ong40@adoteme.org",
+      "telefone": "(51) 997924-7597",
+      "telefone_contato": "(61) 995774-7709",
+      "whatsapp": "(31) 993194-2613",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 768",
+        "bairro": "Bairro 24",
+        "complemento": "Sala 101"
+      },
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong40",
+        "instagram": "instagram.com/ong40"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca2f3",
+    "nome": "Bob",
+    "descricao": "Pet 455 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Husky Siberiano",
+      "caracteristicas": [
+        "Hipoalergênico",
+        "Pelo longo",
+        "Fácil de treinar",
+        "Necessita muito exercício"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 10.031011898127717,
+    "match_preferencias": 0.5,
+    "idade_pet": 2,
+    "castrado": 0,
+    "vacinado": 1,
+    "vermifugado": true,
+    "microchipado": true,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 1,
+    "porte_pet_medio": 0,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet455_1.jpg",
+      "https://example.com/pets/pet455_2.jpg"
+    ],
+    "personalidades": [
+      "Quietinho"
+    ],
+    "peso": 11.3,
+    "necessidades_especiais": "Deficiente auditivo",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 35",
+      "email": "ong35@adoteme.org",
+      "telefone": "(81) 997588-3335",
+      "telefone_contato": "(61) 990150-7988",
+      "whatsapp": "(51) 995115-3085",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 683",
+        "bairro": "Bairro 36",
+        "complemento": "Sala 101"
+      },
+      "cidade": "Fortaleza",
+      "estado": "CE",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong35",
+        "instagram": "instagram.com/ong35"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca22d",
+    "nome": "Zeus",
+    "descricao": "Pet 257 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Pastor Alemão",
+      "caracteristicas": [
+        "Fácil de treinar",
+        "Bom com crianças",
+        "Necessita muito exercício"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 10.292837896247176,
+    "match_preferencias": 0.5,
+    "idade_pet": 5,
+    "castrado": 0,
+    "vacinado": 0,
+    "vermifugado": false,
+    "microchipado": true,
+    "sociavelCaes": 1,
+    "sociavelGatos": 1,
+    "sociavelCriancas": 0,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet257_1.jpg",
+      "https://example.com/pets/pet257_2.jpg"
+    ],
+    "personalidades": [
+      "Harmonioso",
+      "Territorial"
+    ],
+    "peso": 12.2,
+    "necessidades_especiais": "Deficiente visual",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 50",
+      "email": "ong50@adoteme.org",
+      "telefone": "(51) 996883-9366",
+      "telefone_contato": "(21) 993552-2987",
+      "whatsapp": "(91) 990668-5333",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 150",
+        "bairro": "Bairro 4",
+        "complemento": "Galpão"
+      },
+      "cidade": "Brasília",
+      "estado": "DF",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong50",
+        "instagram": "instagram.com/ong50"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca1b4",
+    "nome": "Bob",
+    "descricao": "Pet 136 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Husky Siberiano",
+      "caracteristicas": [
+        "Pelo curto",
+        "Fácil de treinar",
+        "Necessita muito exercício",
+        "Adaptável a apartamento"
+      ],
+      "porte_comum": "MEDIO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 11.550234853587241,
+    "match_preferencias": 0.5,
+    "idade_pet": 11,
+    "castrado": 1,
+    "vacinado": 0,
+    "vermifugado": false,
+    "microchipado": false,
+    "sociavelCaes": 1,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet136_1.jpg",
+      "https://example.com/pets/pet136_2.jpg"
+    ],
+    "personalidades": [
+      "Quieto",
+      "Imperativo",
+      "Sábio"
+    ],
+    "peso": 7.1,
+    "necessidades_especiais": null,
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 69",
+      "email": "ong69@adoteme.org",
+      "telefone": "(91) 991897-5386",
+      "telefone_contato": "(71) 991254-2284",
+      "whatsapp": "(91) 992030-5820",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 108",
+        "bairro": "Bairro 4",
+        "complemento": "Casa"
+      },
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong69",
+        "instagram": "instagram.com/ong69"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca411",
+    "nome": "Zeus",
+    "descricao": "Pet 741 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Yorkshire",
+      "caracteristicas": [
+        "Adaptável a apartamento",
+        "Bom com crianças",
+        "Pelo curto",
+        "Fácil de treinar"
+      ],
+      "porte_comum": "PEQUENO",
+      "especie": "CACHORRO"
+    },
+    "distancia": 11.978689704528461,
+    "match_preferencias": 0.5,
+    "idade_pet": 1,
+    "castrado": 1,
+    "vacinado": 1,
+    "vermifugado": true,
+    "microchipado": false,
+    "sociavelCaes": 1,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 1,
+    "especie_pet_gato": 0,
+    "nivelEnergia_alto": 0,
+    "nivelEnergia_baixo": 1,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet741_1.jpg",
+      "https://example.com/pets/pet741_2.jpg"
+    ],
+    "personalidades": [
+      "Aventureiro"
+    ],
+    "peso": 9.4,
+    "necessidades_especiais": "Deficiente visual",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 13",
+      "email": "ong13@adoteme.org",
+      "telefone": "(31) 996548-2436",
+      "telefone_contato": "(31) 990188-6747",
+      "whatsapp": "(61) 997962-4426",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 397",
+        "bairro": "Bairro 28",
+        "complemento": "Galpão"
+      },
+      "cidade": "Salvador",
+      "estado": "BA",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong13",
+        "instagram": "instagram.com/ong13"
+      }
+    },
+    "probabilidade": 1.0
+  },
+  {
+    "pet_id": "6817d9cdaecd673d504ca49c",
+    "nome": "Lola",
+    "descricao": "Pet 880 muito especial esperando um lar amoroso!",
+    "raca": {
+      "nome": "Siamês",
+      "caracteristicas": [
+        "Pelo longo",
+        "Pelo curto",
+        "Adaptável a apartamento"
+      ],
+      "porte_comum": "PEQUENO",
+      "especie": "GATO"
+    },
+    "distancia": 12.778768244763173,
+    "match_preferencias": 0.5,
+    "idade_pet": 4,
+    "castrado": 0,
+    "vacinado": 0,
+    "vermifugado": true,
+    "microchipado": true,
+    "sociavelCaes": 0,
+    "sociavelGatos": 0,
+    "sociavelCriancas": 1,
+    "porte_pet_grande": 0,
+    "porte_pet_medio": 1,
+    "porte_pet_pequeno": 0,
+    "especie_pet_cachorro": 0,
+    "especie_pet_gato": 1,
+    "nivelEnergia_alto": 1,
+    "nivelEnergia_baixo": 0,
+    "nivelEnergia_moderado": 0,
+    "imagens": [
+      "https://example.com/pets/pet880_1.jpg",
+      "https://example.com/pets/pet880_2.jpg"
+    ],
+    "personalidades": [
+      "Esperto",
+      "Notável",
+      "Livre"
+    ],
+    "peso": 19.5,
+    "necessidades_especiais": "Tratamento contínuo",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ong": {
+      "nome": "ONG Amigos dos Animais 63",
+      "email": "ong63@adoteme.org",
+      "telefone": "(61) 994637-2963",
+      "telefone_contato": "(51) 997991-6630",
+      "whatsapp": "(31) 995332-9161",
+      "endereco": {
+        "logradouro": "Rua dos Animais, 149",
+        "bairro": "Bairro 45",
+        "complemento": "Galpão"
+      },
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "redes_sociais": {
+        "facebook": "facebook.com/ong63",
+        "instagram": "instagram.com/ong63"
+      }
+    },
+    "probabilidade": 1.0
+  }
+]

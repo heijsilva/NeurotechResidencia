@@ -1,0 +1,14 @@
+{
+  "ignore": [
+    "python_ml/*",
+    "*.json",
+    "uploads/*",
+    "src/uploads/*"
+  ],
+  "ext": "js,mjs",
+  "watch": [
+    "src/",
+    "config/",
+    "server.js"
+  ]
+}

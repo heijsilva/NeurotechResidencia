@@ -66,7 +66,7 @@ const updateMe = async (req, res) => {
         if (user.isONG()) {
             if (imagem_url) update.imagem_url = imagem_url;
             if (redes_sociais) update.redes_sociais = redes_sociais;
-        } else if (update.isAdotante()) {
+        } else if (user.isAdotante()) {  // ← CORRIGIDO: era "update.isAdotante()"
             if (preferencias) update.preferencias = preferencias;
         }
 
