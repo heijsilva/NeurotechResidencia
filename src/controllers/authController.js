@@ -76,8 +76,29 @@ const loginUser = async (req, res) => {
     }
 
     const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+    
+    const { _id, user_id, nome, email:userEmail, tipo, imagem_url, endereco, telefone, whatsapp, cidade, estado, cep, cnpj } = user;
 
-    res.status(200).json({ token });
+    const userData = {
+      _id,
+      user_id,
+      nome,
+      email: userEmail,
+      tipo,
+      imagem_url,
+      endereco,
+      telefone,
+      whatsapp,
+      cidade,
+      estado,
+      cep, 
+      cnpj
+    };
+
+    res.status(200).json({
+      token,
+      user: userData
+    });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
