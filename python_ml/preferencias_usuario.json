@@ -1,0 +1,25 @@
+{
+  "usuario_id": "123",
+  "nome": "vvs",
+  "idade_usuario": 25,
+  "coordenadas": {
+    "latitude": -8.0550821,
+    "longitude": -34.8871441
+  },
+  "tipoResidencia": "apartamento",
+  "horasSozinhoPet": 4,
+  "possuiPets": 0,
+  "experienciaPrevia": 0,
+  "tem_criancas": false,
+  "aceita_necessidades_especiais": false,
+  "preferencias_especie": "cachorro",
+  "preferencias_porte": "medio",
+  "preferencias_nivel_energia": "moderado",
+  "distancia_maxima": 50,
+  "prefere_vacinado": true,
+  "prefere_castrado": true,
+  "prefere_vermifugado": false,
+  "prefere_sociavel_caes": false,
+  "prefere_sociavel_gatos": false,
+  "prefere_sociavel_criancas": false
+}

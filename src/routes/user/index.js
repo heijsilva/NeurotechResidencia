@@ -13,4 +13,4 @@ router.patch('/me', updateMe);
 export default {
     prefix: "/users",
     router,
-};  
+};

@@ -8,13 +8,13 @@ const router = Router();
 // router.use([middleware.authenticated]);
 
 router.get('/', getAllPets);
-router.get('/:id', getPetById)
-router.get('/ong/:id_ong', getPetsByOng); // Atenção aqui!
-router.get('/enums', getEnums);
+router.get('/enums', getEnums);  // ← MOVIDO PARA CIMA
+router.get('/:id', getPetById);
+router.get('/ong/:id_ong', getPetsByOng);
 router.post('/', createPet);
 router.post('/:id/image', upload.single('image'), updatePetImage);
 
 export default {
     prefix: "/pets",
     router,
-};  
+};
