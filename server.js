@@ -8,11 +8,9 @@ import connectDB from './config/db.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { configDotenv } from 'dotenv';
-import { getLocalIP } from './getLocalIP.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const localIP = getLocalIP();
 
 configDotenv();
 
@@ -51,6 +49,6 @@ const PORT = 3000; // Altere a porta aqui se quiser
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📁 Exemplos de rotas:`);
-  console.log(` Celular:  ▶ http://${localIP}:${PORT}/api/auth/register`);
+  console.log(` Celular:  ▶ http://192.168...:${PORT}/api/auth/register (verifique o ip nas configurações de rede de sua máquina)`);
   console.log(` Navegador:  ▶ http://localhost:${PORT}/api/auth/register`);
 });
