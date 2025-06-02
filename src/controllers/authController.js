@@ -76,10 +76,32 @@ const loginUser = async (req, res) => {
     // }
 
     const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+    
+    const { _id, user_id, nome, email:userEmail, tipo, imagem_url, endereco, telefone, whatsapp, cidade, estado, cep, cnpj } = user;
 
-    res.status(200).json({ token, user_metadata: { id: user.user_id, role: user.tipo } });
+    const userData = {
+      _id,
+      user_id,
+      nome,
+      email: userEmail,
+      tipo,
+      imagem_url,
+      endereco,
+      telefone,
+      whatsapp,
+      cidade,
+      estado,
+      cep, 
+      cnpj
+    };
+
+    return res.status(200).json({
+      token,
+      user: userData
+    });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 };
 
@@ -92,11 +114,9 @@ const refreshToken = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
 
-    console.log(token);
-
     return res.status(200).json({ token });
   } catch (err) {
-    res.status(401).json({ error: err.message });
+    return res.status(401).json({ error: err.message });
   }
 };
 

@@ -1,11 +1,12 @@
-import authRoute from './_auth/index.js';
+import auth from './_auth/index.js';
 import pet from './pet/index.js';
 import user from './user/index.js';
+import recomendation from './recomendation/index.js';
 
-export { authRoute };
 
 export default [
+    auth,
     pet,
-    user
+    user,
+    recomendation
 ];
-
