@@ -70,10 +70,10 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: 'Usuário não encontrado' });
     }
 
-    // const isMatch = await bcrypt.compare(senha, user.senha);
-    // if (!isMatch) {
-    //   return res.status(400).json({ message: 'Senha incorreta' });
-    // }
+    const isMatch = await bcrypt.compare(senha, user.senha);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Senha incorreta' });
+    }
 
     const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
     
