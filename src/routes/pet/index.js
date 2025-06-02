@@ -5,7 +5,7 @@ import middleware from '../../middleware/index.js';
 
 const router = Router();
 
-// router.use([middleware.authenticated]);
+router.use([middleware.authenticated]);
 
 router.get('/', getAllPets);
 router.get('/:id', getPetById)

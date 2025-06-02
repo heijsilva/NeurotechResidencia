@@ -77,13 +77,31 @@ const loginUser = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
 
-    res.status(200).json({ token });
+    res.status(200).json({ token, user_metadata: {role: user.tipo} });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 };
 
+const refreshToken = async (req, res) => {
+  try {
+    const { refresh_token } = req.body;
+    // CRIAR FLUXO PARA VALIDAR E REVOGAR REFRESH TOKEN APÓS O USO
+    const tokenDecoded = jwt.decode(refresh_token);
+    const user = await Usuario.findOne({ _id: tokenDecoded.id });
+
+    const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+
+    console.log(token);
+
+    return res.status(200).json({ token });
+  } catch (err) {
+    res.status(401).json({ error: err.message });
+  }
+};
+
 export {
   registerUser,
-  loginUser
+  loginUser,
+  refreshToken
 };
