@@ -1,5 +1,6 @@
 import { EspecieEnum, NivelEnergiaEnum, Pet, PorteEnum, SexoEnum } from '../models/Pet.js';
 import mongoose from 'mongoose';
+import Usuario from '../models/Usuario.js';
 
 // Criar novo pet (adaptado ao novo schema)
 const createPet = async (req, res) => {
@@ -30,29 +31,29 @@ const createPet = async (req, res) => {
 
   try {
     const newPet = new Pet({
-  pet_id: Math.floor(Math.random() * 1000000),
-  nome,
-  especie,
-  idade,
-  porte,
-  peso,
-  descricao,
-  ong_id: Number(ong_id),
-  foto_url,
-  vacinado,
-  castrado,
-  vermifugado,
-  microchipado,
-  nivelEnergia,
-  sexo, // ✅ Adicione isso!
-  raca_id: Number(raca_id),
-  personalidades: personalidades?.map(Number) || [],
-  coordenadas,
-  cidade,
-  estado,
-  necessidades_especiais,
-  imagens
-});
+      pet_id: Math.floor(Math.random() * 1000000),
+      nome,
+      especie,
+      idade,
+      porte,
+      peso,
+      descricao,
+      ong_id: Number(ong_id),
+      foto_url,
+      vacinado,
+      castrado,
+      vermifugado,
+      microchipado,
+      nivelEnergia,
+      sexo, // ✅ Adicione isso!
+      raca_id: Number(raca_id),
+      personalidades: personalidades?.map(Number) || [],
+      coordenadas,
+      cidade,
+      estado,
+      necessidades_especiais,
+      imagens
+    });
 
     await newPet.save();
 
@@ -67,8 +68,14 @@ const createPet = async (req, res) => {
 const getPetsByOng = async (req, res) => {
   const { id_ong } = req.params;
 
+  let ongId = parseInt(id_ong);
+
+  const user = await Usuario.findOne({ _id: req.user.id });
+
+  if (user.tipo === 'ONG') ongId = user.user_id;
+  
   try {
-    const pets = await Pet.find({ ong_id: parseInt(id_ong) });
+    const pets = await Pet.find({ ong_id: ongId });
     res.status(200).json(pets);
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -78,7 +85,7 @@ const getPetsByOng = async (req, res) => {
 
 const updatePetImage = async (req, res) => {
   try {
-     if (!req.file) {
+    if (!req.file) {
       return res.status(400).json({ error: 'Nenhum arquivo enviado.' });
     }
     const { id } = req.params;
@@ -129,11 +136,11 @@ const getPetById = async (req, res) => {
 };
 
 const getEnums = async (req, res) => {
-  const a =  {
-  PEQUENO: 'PEQUENO',
-  MEDIO: 'MEDIO',
-  GRANDE: 'GRANDE'
-};
+  const a = {
+    PEQUENO: 'PEQUENO',
+    MEDIO: 'MEDIO',
+    GRANDE: 'GRANDE'
+  };
 
   try {
     return res.status(200).json({

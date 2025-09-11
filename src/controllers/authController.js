@@ -95,12 +95,28 @@ const loginUser = async (req, res) => {
       cnpj
     };
 
-    res.status(200).json({
+    return res.status(200).json({
       token,
       user: userData
     });
+
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+const refreshToken = async (req, res) => {
+  try {
+    const { refresh_token } = req.body;
+    // CRIAR FLUXO PARA VALIDAR E REVOGAR REFRESH TOKEN APÓS O USO
+    const tokenDecoded = jwt.decode(refresh_token);
+    const user = await Usuario.findOne({ _id: tokenDecoded.id });
+
+    const token = jwt.sign({ id: user._id }, 'secretkey', { expiresIn: '1h' });
+
+    return res.status(200).json({ token });
+  } catch (err) {
+    return res.status(401).json({ error: err.message });
   }
 };
 
